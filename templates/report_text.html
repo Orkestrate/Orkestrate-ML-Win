@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block body %}	
+
+  {% for index,row in model.iterrows() %}
+  <h1><font color="#3a0345">{{row.modelname}} Report</font></h1>
+  <p>Model trained by {{row.author}} on {{row.create_date}}</p>
+  {% endfor %}
+  <p></p>
+  
+  <table class="table table-striped">
+  <tr>
+	  <th style='text-align:center;vertical-align:middle'>Data</th>
+	  <th style='text-align:center;vertical-align:middle'>Label</th>
+	  <th style='text-align:center;vertical-align:middle'>Prediction</th>
+  </tr>
+  
+	{% for index,row in result.iterrows() %}
+	<tr>
+		<th style='text-align:center;vertical-align:middle'>{{row.labeldata}}</th>
+	    <th style='text-align:center;vertical-align:middle'>{{row.labelname}}</th>
+	    <th style='text-align:center;vertical-align:middle'>{{row.prediction}}</th>
+	</tr>
+	{% endfor %}
+  </table>
+  
+  
+{% endblock %}
+

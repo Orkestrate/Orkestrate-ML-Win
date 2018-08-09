@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<script type="text/javascript">
+	var ray={
+	ajax:function(st)
+		{
+			this.show('load');
+		},
+	show:function(el)
+		{
+			this.getID(el).style.display='';
+		},
+	getID:function(el)
+		{
+			return document.getElementById(el);
+		}
+	}
+	</script>
+	<style type="text/css">
+	#load{
+	position:absolute;
+	z-index:1;
+	border:3px double #999;
+	background-image:url("/static/bg.gif");
+	background-size:100%;
+	width:428px;
+	height:300px;
+	margin-top:-150px;
+	margin-left:-150px;
+	top:50%;
+	left:45%;
+	text-align:center;
+	line-height:300px;
+	}
+	</style>
+	<div id="load" style="display:none;">Fantastic! Your Model is being trained. Please wait ... </div>
+  <h1><font color="#3a0345">Train Image Model</font></h1>
+	<br>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="" onsubmit="return ray.ajax()" enctype="multipart/form-data">
+	<div class="form-group">
+      {{render_field(form.modelname, class_="form-control")}}
+    </div> 
+    <p>Select the image folder containing subfolders with different label names here:
+	<center><input type="file" id="filepicker" class="btn btn-primary" name="fileList" webkitdirectory multiple /></center>
+	<br>
+	<input type="submit" class="btn btn-primary" value="Submit" ></p>
+	
+	
+  </form>
+{% endblock %}

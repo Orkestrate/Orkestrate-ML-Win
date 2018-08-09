@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}	
+
+  {% for index,row in model.iterrows() %}
+  <div class="jumbotron text-center">
+  <h1><font color="#3a0345">{{row.modelname}} Report</font></h1>
+  <p>Model trained by {{row.author}} on {{row.create_date}}</p>
+   {% endfor %}
+  {{html_string|safe}}
+  
+{% endblock %}
+

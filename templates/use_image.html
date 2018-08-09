@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+  <h1><font color="#3a0345">Use image model: {{form.modelname.data}}</font></h1>
+  <script type="text/javascript">
+	var ray={
+	ajax:function(st)
+		{
+			this.show('load');
+		},
+	show:function(el)
+		{
+			this.getID(el).style.display='';
+		},
+	getID:function(el)
+		{
+			return document.getElementById(el);
+		}
+	}
+	</script>
+	<style type="text/css">
+	#load{
+	position:absolute;
+	z-index:1;
+	border:3px double #999;
+	background-image:url("/static/bg.gif");
+	background-size:100%;
+	width:428px;
+	height:300px;
+	margin-top:-150px;
+	margin-left:-150px;
+	top:50%;
+	left:45%;
+	text-align:center;
+	line-height:300px;
+	}
+	</style>
+	<div id="load" style="display:none;">Hooray! Your Report is being generated. Please wait ... </div>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <br>
+  <form action="" method="POST"  onsubmit="return ray.ajax()" enctype="multipart/form-data">
+   <p>Select the images to test with trained model here:
+  <center><input id="file-picker" type="file" class="btn btn-primary" name="fileList" accept="image/*" multiple></center>
+  <br>
+      <input type="submit" class="btn btn-primary" value="Submit" >
+</form>
+  <br>
+{% endblock %}

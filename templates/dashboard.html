@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1><font color="#3a0345">Dashboard</font> <P> Welcome {{session.name}}</P></h1>
+  <a class="btn btn-success" href="/add_image_model">Add Image Model</a>
+  <a class="btn btn-success" href="/add_text_model">Add Text Model</a>
+  <hr>
+  <table class="table table-striped" >
+    <tr>
+      <th style='text-align:center;vertical-align:middle'>ID</th>
+      <th style='text-align:center;vertical-align:middle'>Model Name</th>
+	  <th style='text-align:center;vertical-align:middle'>Model Type</th>
+      <th style='text-align:center;vertical-align:middle'>Author</th>
+      <th style='text-align:center;vertical-align:middle'>Date</th>
+      <th></th>
+      <th></th>
+	  <th></th>
+    </tr>
+    {% for index,row in models.iterrows() %}
+      <tr>
+        <td style='text-align:center;vertical-align:middle'>{{row.id}}</td>
+        <td style='text-align:center;vertical-align:middle'>{{row.modelname}}</td>
+		<td style='text-align:center;vertical-align:middle'>{{row.modeltype}}</td>
+        <td style='text-align:center;vertical-align:middle'>{{row.author}}</td>
+        <td style='text-align:center;vertical-align:middle'>{{row.create_date}}</td>
+        <td><a href="{{url_for('train', id=row.id)}}" class="btn btn-default pull-right">Retrain</a></td>
+		<td><a href="{{url_for('use', id=row.id)}}" class="btn btn-default">Use</a></td>
+        <td><a href="{{url_for('remove_model', id=row.id)}}" class="btn btn-danger">Delete</a>
+		</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+
+{% endblock %}
