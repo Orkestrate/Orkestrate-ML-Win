@@ -15,10 +15,7 @@ Flask==0.12.1
 Flask-AppBuilder==1.11.1
 Flask-Babel==0.11.1
 Flask-Login==0.2.11
-Flask-MySQLdb==0.2.0
 Flask-OpenID==1.2.5
-Flask-SQLAlchemy==2.1
-Flask-WTF==0.14.2
 future==0.16.0
 gast==0.2.0
 grpcio==1.12.0
@@ -36,14 +33,12 @@ passlib==1.7.1
 pefile==2017.11.5
 pip==18.0
 protobuf==3.5.2.post1
-pyodbc==4.0.23
 pypiwin32==223
 PyQt5==5.8.2
 python3-openid==3.1.0
 python-dateutil==2.7.3
 pytz==2018.4
 pywin32==223
-redis==2.10.6
 requests==2.19.1
 scikit-learn==0.19.1
 scipy==1.1.0
@@ -51,7 +46,6 @@ setuptools==39.1.0
 sip==4.19.8
 six==1.11.0
 sklearn==0.0
-SQLAlchemy==1.2.10
 tensorboard==1.9.0
 tensorflow==1.9.0
 termcolor==1.1.0
